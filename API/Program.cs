@@ -1,3 +1,4 @@
+using System.Globalization;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,10 +14,12 @@ builder.Services.AddDbContext<DataContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
+builder.Services.AddCors();
 var app = builder.Build();// anything above this line comes unfer services container 
 
 // Configure the HTTP request pipeline.
+// the middele weare will be here 
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
