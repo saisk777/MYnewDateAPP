@@ -1,25 +1,8 @@
-<h1>{{title}}</h1>
-<ul class="text">
-    <li *ngFor="let user of users">{{user.id}}-
-        {{user.userName}}</li>
-    </ul>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>
-                    UserId
-                </th>
-                <th>
-                    UserName
-                </th>
-            </tr>
-        </thead>
-        <tbody >
-            <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{ user.userName}}</td>
-            </tr>
-        </tbody>
-    </table>
+<app-nav></app-nav>
+<div class="container" style="margin-top: 100px;">
+    <app-home></app-home>
+   
+</div>
+
 
    
