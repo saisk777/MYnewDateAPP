@@ -8,6 +8,7 @@ using API.Entities;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using API.Extensions;
+using API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args) ;
 // Add services to the container.
@@ -36,7 +37,7 @@ builder.Services.AddSwaggerGen();
 //     };
 // });
 var app = builder.Build();// anything above this line comes unfer services container 
-
+app.UseMiddleware<ExceptionMiddleware>();
 // Configure the HTTP request pipeline.
 // the middele weare will be here 
 app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
